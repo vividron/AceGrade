@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/internal_marks"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blur_background"
+    tools:context=".Branch">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/help_ut"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="17dp"
+            android:layout_gravity="center"
+            android:src="@drawable/question_mark_circle_outline_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="2dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Help"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:text="ENTER YOUR INTERNAL MARKS"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/card_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="5"
+            android:progress="3"
+            android:progressDrawable="@drawable/progress_bar_states" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/step1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Step 1" />
+
+            <TextView
+                android:id="@+id/step2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Step 2" />
+
+            <TextView
+                android:id="@+id/step3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Step 3" />
+
+            <TextView
+                android:id="@+id/step4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Step 4" />
+
+            <TextView
+                android:id="@+id/step5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Step 5" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/internal_marks_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/card_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:text="Scroll down for more"
+        android:textColor="@color/black"
+        android:textSize="13sp">
+
+    </TextView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_max="400dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="130dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardBackgroundColor="@color/dark_blue"
+        app:cardCornerRadius="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/Name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/sub1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Subject name"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/ut1_sub1_mrk"
+                        android:hint="UT - I Marks"
+                        android:textColorHint="#E4DCDC"
+                        android:layout_width="25dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_edit_view_2"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:textCursorDrawable="@drawable/custom_cursor"
+                        android:paddingStart="20dp"
+                        android:textColor="@color/home_white"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                        <EditText
+                            android:id="@+id/ut2_sub1_mrk"
+                            android:hint="UT - II Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/sub2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Subject name"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/ut1_sub2_mrk"
+                            android:hint="UT - I Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:paddingStart="20dp"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <EditText
+                            android:id="@+id/ut2_sub2_mrk"
+                            android:hint="UT - II Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:paddingStart="20dp"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/sub3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Subject name"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/ut1_sub3_mrk"
+                            android:hint="UT - I Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <EditText
+                            android:id="@+id/ut2_sub3_mrk"
+                            android:hint="UT - II Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/sub4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Subject name"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/ut1_sub4_mrk"
+                            android:hint="UT - I Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <EditText
+                            android:id="@+id/ut2_sub4_mrk"
+                            android:hint="UT - II Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:maxLength="2"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/sub5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Subject name"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/ut1_sub5_mrk"
+                            android:hint="UT - I Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <EditText
+                            android:id="@+id/ut2_sub5_mrk"
+                            android:hint="UT - II Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sub6_layout"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/sub6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Subject name"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/ut1_sub6_mrk"
+                            android:hint="UT - I Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <EditText
+                            android:id="@+id/ut2_sub6_mrk"
+                            android:hint="UT - II Marks"
+                            android:textColorHint="#E4DCDC"
+                            android:layout_width="25dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_edit_view_2"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:paddingStart="20dp"
+                            android:textColor="@color/home_white"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-18dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view"
+        app:layout_constraintVertical_bias="0.45">
+
+        <Button
+            android:id="@+id/internal_marks_bck"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/dark_blue"
+            android:text="Back"
+            android:textColor="@color/home_white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:icon="@drawable/back_arrow"
+            app:iconGravity="start" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sem_nxt_btn_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-18dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view"
+        app:layout_constraintVertical_bias="0.45">
+
+        <Button
+            android:id="@+id/internal_marks_next"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/dark_blue"
+            android:text="Next"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:icon="@drawable/next_arrow"
+            app:iconGravity="end" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

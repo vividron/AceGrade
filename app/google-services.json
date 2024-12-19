@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "667257862204",
+    "firebase_url": "https://acegrade-fa12f-default-rtdb.firebaseio.com",
+    "project_id": "acegrade-fa12f",
+    "storage_bucket": "acegrade-fa12f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667257862204:android:e939d3019176833baaab39",
+        "android_client_info": {
+          "package_name": "com.example.sgpa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTdeHT7QYUbdCCWWvcDDFIJQ4Vjq0St0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667257862204:android:29937cff085a9479aaab39",
+        "android_client_info": {
+          "package_name": "com.stardust.sgpa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTdeHT7QYUbdCCWWvcDDFIJQ4Vjq0St0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

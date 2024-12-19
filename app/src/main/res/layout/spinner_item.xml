@@ -1,0 +1,9 @@
+<!-- res/layout/spinner_item.xml -->
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="17  marks  20"
+    android:textColor="@color/home_white"
+    android:textSize="20sp">
+</TextView>

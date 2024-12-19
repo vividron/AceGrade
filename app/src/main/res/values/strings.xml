@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AceGrade</string>
+    <string-array name="marks_range_25">
+        <item>Just Pass</item>
+        <item>Average</item>
+        <item>15 &lt; Your Marks &gt; 18</item>
+        <item>18 &lt; Your Marks &gt; 20</item>
+        <item>20 &lt; Your Marks &gt; 25</item>
+    </string-array>
+    <string-array name="marks_range_50">
+        <item>Just Pass</item>
+        <item>Average</item>
+        <item>35 &lt; Your Marks &gt; 37 </item>
+        <item>38 &lt; Your Marks &gt; 39</item>
+        <item>40 &lt; Your Marks &gt; 50</item>
+    </string-array>
+    <string-array name="marks_range_75">
+        <item>Just Pass</item>
+        <item>Average</item>
+        <item>53 &lt; Your Marks &gt; 56 </item>
+        <item>57 &lt; Your Marks &gt; 59</item>
+        <item>60 &lt; Your Marks &gt; 75</item>
+    </string-array>
+    <string-array name="pref">
+        <item>Easy</item>
+        <item>Intermediate</item>
+        <item>Hard</item>
+    </string-array>
+</resources>
