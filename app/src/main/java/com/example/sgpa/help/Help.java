@@ -295,8 +295,8 @@ public class Help extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(Help.this, HomePage.class));
         super.onBackPressed();
+        startActivity(new Intent(Help.this, HomePage.class));
     }
 
     private void showCopyMenu(View anchorView, String email) {
