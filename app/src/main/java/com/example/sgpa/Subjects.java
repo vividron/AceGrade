@@ -7,7 +7,7 @@ public class Subjects {
     public static int[] termWorkRange = new int[9];
     public static int[] subCredit = new int[6];
     public static float[] termWorkCredit = new float[9];
-    public static int totalCredit;
+    public static int Credits;
 
     public static String[] getSubjects(String branch, String sem) {
         String[] sub5 = new String[5];
@@ -43,7 +43,7 @@ public class Subjects {
                 subCredit[4] = 3;
                 subCredit[5] = 2;
 
-                totalCredit = 21;
+                Credits = 21;
 
                 return sub6;
             } else {
@@ -71,7 +71,7 @@ public class Subjects {
                 subCredit[3] = 3;
                 subCredit[4] = 2;
 
-                totalCredit = 22;
+                Credits = 22;
 
                 return sub5;
             }
@@ -104,7 +104,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 23;
+                            Credits = 23;
                             return sub5;
 
                         case "Semester 4":
@@ -132,7 +132,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 24;
+                            Credits = 24;
                             return sub5;
                     }
                     break;
@@ -164,7 +164,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 23;
+                            Credits = 23;
                             return sub5;
 
                         case "Semester 4":
@@ -192,7 +192,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 23;
+                            Credits = 23;
                             return sub5;
                     }
                     break;
@@ -224,7 +224,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 24;
+                            Credits = 24;
                             return sub5;
 
                         case "Semester 4":
@@ -252,7 +252,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 23;
+                            Credits = 23;
                             return sub5;
                     }
                     break;
@@ -283,7 +283,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 24;
+                            Credits = 24;
                             return sub5;
 
                         case "Semester 4":
@@ -311,7 +311,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 23;
+                            Credits = 23;
                             return sub5;
                     }
                     break;
@@ -342,7 +342,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 24;
+                            Credits = 24;
                             return sub5;
 
                         case "Semester 4":
@@ -370,7 +370,7 @@ public class Subjects {
                             subCredit[3] = 3;
                             subCredit[4] = 3;
 
-                            totalCredit = 24;
+                            Credits = 24;
                             return sub5;
                     }
                     break;
@@ -735,8 +735,8 @@ public class Subjects {
     public static float[] getTermWorkCredit(){
         return termWorkCredit;
     }
-    public static int getTotalCredit(){
-        return totalCredit;
+    public static int getCredits(){
+        return Credits;
     }
     public static int[] getEndSemRange(){
         return endSemRange;

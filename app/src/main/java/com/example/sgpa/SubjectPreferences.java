@@ -68,7 +68,7 @@ public class SubjectPreferences extends AppCompatActivity {
             sub = Subjects.getSubjects(branch, sem);
         }
         assert sub != null;
-        final boolean[] endSemOrPref = new boolean[sub.length]; // true mtlb it is endSem mrks and false mtlb it is Pref
+        final boolean[] isEndSemMarks = new boolean[sub.length]; // true mtlb it is endSem mrks and false mtlb it is Pref
 
         subtv[0] = findViewById(R.id.sub1);
         subtv[0].setText(sub[0]);
@@ -147,9 +147,9 @@ public class SubjectPreferences extends AppCompatActivity {
                     endSemNext[subNum].setVisibility(View.GONE);
                     endSemMrks[subNum].setVisibility(View.VISIBLE);
                     endSemBack[subNum].setVisibility(View.VISIBLE);
-                    endSemOrPref[subNum] = true;
+                    isEndSemMarks[subNum] = true;
                     boolean allTrue = true;
-                    for (boolean value : endSemOrPref) {
+                    for (boolean value : isEndSemMarks) {
                         if (!value) {
                             allTrue = false;
                             break;
@@ -165,18 +165,18 @@ public class SubjectPreferences extends AppCompatActivity {
                     endSemNext[subNum].setVisibility(View.VISIBLE);
                     endSemMrks[subNum].setVisibility(View.GONE);
                     endSemBack[subNum].setVisibility(View.GONE);
-                    endSemOrPref[subNum] = false;
+                    isEndSemMarks[subNum] = false;
                     sgpa_val_layout.setVisibility(View.VISIBLE);
                 }
             });
         }
 
-        restoreSelectedFields(spinnerSub, sub.length, endSemNext, endSemBack, endSemOrPref, endSemMrks);
+        restoreSelectedFields(spinnerSub, sub.length, endSemNext, endSemBack, isEndSemMarks, endSemMrks);
 
         nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean[] validInput = checkValidInputs(endSemMrks, endSemOrPref, endSemRange, sub.length, vibrator);
+                boolean[] validInput = checkValidInputs(endSemMrks, isEndSemMarks, endSemRange, sub.length, vibrator);
                 if (validInput[0]) {
                     error_msg.setTextColor(getResources().getColor(R.color.red, getTheme()));
                     error_msg.setText("Invalid input. Check the marks range or empty inputs");
@@ -189,7 +189,7 @@ public class SubjectPreferences extends AppCompatActivity {
                     sgpa.setBackgroundResource(R.drawable.bg_edit_view_3);
                 }else {
                     sgpa.setBackgroundResource(R.drawable.bg_edit_view_2);
-                    saveSelectedFields(spinnerSub, sub.length, endSemOrPref, endSemMrks);
+                    saveSelectedFields(spinnerSub, sub.length, isEndSemMarks, endSemMrks);
                     Intent intent = new Intent(SubjectPreferences.this, EndSemConsultant.class);
                     startActivity(intent);
                 }
@@ -199,7 +199,7 @@ public class SubjectPreferences extends AppCompatActivity {
         bck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveSelectedFields(spinnerSub , sub.length, endSemOrPref, endSemMrks);
+                saveSelectedFields(spinnerSub , sub.length, isEndSemMarks, endSemMrks);
                 startActivity(new Intent(SubjectPreferences.this, InternalMarksInput.class));
             }
         });

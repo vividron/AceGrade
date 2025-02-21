@@ -2,7 +2,6 @@ package com.example.sgpa;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
@@ -28,7 +27,7 @@ public class EndSemConsultant extends AppCompatActivity {
     private final int[] internalMrks = new int[numOfSub];
     private final int[] subPref = new int[numOfSub];
     private final int[] endSemMrks = new int[numOfSub];
-    private final boolean[] endSemOrPref = new boolean[numOfSub];
+    private final boolean[] isEndSemMarks = new boolean[numOfSub];
     private final int[] endSemRange = Subjects.getEndSemRange();
     private final String[] subName = SubjectPreferences.sub;
     private static float predictedSgpa=0;
@@ -93,11 +92,11 @@ public class EndSemConsultant extends AppCompatActivity {
 
         }else if(sgpa==0) {  // case 1
 
-            subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, endSemOrPref, internalMrks, 10);
+            subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, isEndSemMarks, internalMrks, 10);
             if (subMrks == null) {
                 sgpa = 9.99f;
                 while (subMrks == null) {
-                    subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, endSemOrPref, internalMrks, sgpa);
+                    subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, isEndSemMarks, internalMrks, sgpa);
                     sgpa -= 0.1f;
                 }
             }
@@ -106,7 +105,7 @@ public class EndSemConsultant extends AppCompatActivity {
             for (int i = 0; i < numOfSub; i++) {
                 String sub = "<u><b>" + subName[i] + "</b></u>" + getPreference(i);
                 String marks = "<u><b>" + subMrks[i] + "</b></u>";
-                if (endSemOrPref[i])
+                if (isEndSemMarks[i])
                     info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" your expected marks : ").append(marks).append(".<br><br>");
                 else
                     info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" ").append(marks).append(" out of ").append(endSemRange[i]).append(".<br><br>");
@@ -134,26 +133,26 @@ public class EndSemConsultant extends AppCompatActivity {
 
 
         }else{
-            subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, endSemOrPref, internalMrks, sgpa);
+            subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, isEndSemMarks, internalMrks, sgpa);
             String[] correctedPref = OnPrefPredictMarksAlgo.correctedPref;
             prefSgpa = OnPrefPredictMarksAlgo.preTC;
 
             boolean isHighPrefLowSgpa = false;
             for (int i = 0; i < numOfSub; i++) {
                 String pref = " <b>(Pref : " + correctedPref[i] + ")</b>";
-                if (!endSemOrPref[i]) isHighPrefLowSgpa = !pref.equals(getPreference(i));
+                if (!isEndSemMarks[i]) isHighPrefLowSgpa = !pref.equals(getPreference(i));
             }
 
             if (subMrks != null && isHighPrefLowSgpa) { // case 2
 
                 for (int i = 0; i < numOfSub; i++) {
                     String marks = "<u><b>" + subMrks[i] + "</b></u>";
-                    String pref = (!endSemOrPref[i]) ? correctedPref[i] : null;
+                    String pref = (!isEndSemMarks[i]) ? correctedPref[i] : null;
                     String sub;
                     if (pref != null)
                         sub = "<u><b>" + subName[i] + "</b></u>" + " <b>(New Pref : " + pref + ")</b>";
                     else sub = "<u><b>" + subName[i] + "</b></u>";
-                    if (endSemOrPref[i])
+                    if (isEndSemMarks[i])
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" your expected marks : ").append(marks).append(".<br><br>");
                     else
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" ").append(marks).append(" out of ").append(endSemRange[i]).append(".<br><br>");
@@ -162,12 +161,12 @@ public class EndSemConsultant extends AppCompatActivity {
                 String prefTotalCredits = "<u><b>" + prefSgpa + "</b></u>";
                 info.append("Based on the above combination, the overall SGPA you will achieve is ").append(getCompareSymbolForSgpa(allSubFull,prefSgpa)).append(prefTotalCredits).append("<br><br>Now here is a combination based on your preferences that will generate an SGPA either slightly above or significantly higher than your required SGPA.<br><br>");
 
-                subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, endSemOrPref, internalMrks, 10);
+                subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, isEndSemMarks, internalMrks, 10);
 
                 if (subMrks == null) {
                     sgpa = 9.9f;
                     while (subMrks == null) {
-                        subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, endSemOrPref, internalMrks, sgpa);
+                        subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, isEndSemMarks, internalMrks, sgpa);
                         sgpa -= 0.1f;
                     }
                 }
@@ -176,7 +175,7 @@ public class EndSemConsultant extends AppCompatActivity {
                 for (int i = 0; i < numOfSub; i++) {
                     String sub = "<u><b>" + subName[i] + "</b></u>" + getPreference(i);
                     String marks = "<b>" + subMrks[i] + "</b>";
-                    if (endSemOrPref[i])
+                    if (isEndSemMarks[i])
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" your expected marks : ").append(marks).append(".<br><br>");
                     else
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" ").append(marks).append(" out of ").append(endSemRange[i]).append(".<br><br>");
@@ -207,7 +206,7 @@ public class EndSemConsultant extends AppCompatActivity {
                 for (int i = 0; i < numOfSub; i++) {
                     String sub = "<u><b>" + subName[i] + "</b></u>" + getPreference(i);
                     String marks = "<u><b>" + subMrks[i] + "</b></u>";
-                    if (endSemOrPref[i])
+                    if (isEndSemMarks[i])
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" your expected marks : ").append(marks).append(".<br><br>");
                     else
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" ").append(marks).append(" out of ").append(endSemRange[i]).append(".<br><br>");
@@ -237,7 +236,7 @@ public class EndSemConsultant extends AppCompatActivity {
                 if (subMrks == null) {
                     sgpa = 9.9f;
                     while (subMrks == null) {
-                        subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, endSemOrPref, internalMrks, sgpa);
+                        subMrks = OnPrefPredictMarksAlgo.calculate(termWorkMrks, subPref, endSemMrks, isEndSemMarks, internalMrks, sgpa);
                         sgpa -= 0.1f;
                     }
                     prefSgpa = OnPrefPredictMarksAlgo.preTC;
@@ -246,7 +245,7 @@ public class EndSemConsultant extends AppCompatActivity {
                 for (int i = 0; i < numOfSub; i++) {
                     String sub = "<u><b>" + subName[i] + "</b></u>" + getPreference(i);
                     String marks = "<u><b>" + subMrks[i] + "</b></u>";
-                    if (endSemOrPref[i])
+                    if (isEndSemMarks[i])
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" your expected marks : ").append(marks).append(".<br><br>");
                     else
                         info.append("For ").append(sub).append(", your marks should be ").append(getCompareSymbolForSub(subMrks[i], endSemRange[i])).append(" ").append(marks).append(" out of ").append(endSemRange[i]).append(".<br><br>");
@@ -325,7 +324,7 @@ public class EndSemConsultant extends AppCompatActivity {
             if(i < subPref.length){
                 internalMrks[i] = preferences.getInt(InternalMarksInput.AVG_MRK_SUB + (i+1) , -1);
                 subPref[i] = preferences.getInt(SubjectPreferences.PREF_SUB + (i+1) , -1);
-                endSemOrPref[i] = preferences.getBoolean(SubjectPreferences.PREF_OR_ENDSEM_MRKS + (i+1), false);
+                isEndSemMarks[i] = preferences.getBoolean(SubjectPreferences.PREF_OR_ENDSEM_MRKS + (i+1), false);
                 endSemMrks[i] = preferences.getInt(SubjectPreferences.ENDSEM_MRKS_SUB + (i+1), -1);
             }
         }
