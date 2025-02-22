@@ -134,52 +134,27 @@ preTC = Math.round((preTC / Credits)*100)/100f;
 For a visual representation of the workflow, see the flowchart below:
 
 ```mermaid
-flowchart TD
+flowchart TB
   A([Start]) --> B[/Input Data/]
   B --> C[Initialize Variables]
   C --> D{For each subject:}
-  D -->|Marks Provided| E[Calculate totalMarks = internalMarks + endSemesterMarks]
-  D -->|Preference Selected| F[Calculate Minimum Passing Marks]
-  F --> G[Assign Starting Multiplier]
-  G --> H[Categorize into easySub, interSub, hardSub]
-  H --> I[Calculate Term Work Credits]
-  I --> J[Determine Multiplier Ranges]
-  J --> K[Prioritize Subjects: Easy > Medium > Hard]
-  K --> L{Adjust Multipliers}
-  L -->|SGPA Achieved?| M[Convert Multipliers to Marks]
-  L -->|Max Range Reached| N[Flag invalidPref = true]
-  M --> O{Validate Marks}
-  O -->|Valid| P[Update correctedPref if needed]
-  O -->|Invalid| Q[Return null]
+  D -->|Marks Provided| E["totalMarks = internalMarks + endSemesterMarks"]
+  D -->|Preference Selected| F["Calculate Minimum Passing Marks"]
+  F --> G["Assign Starting Multiplier"]
+  E --> F
+  G --> H["Categorize into easySub, interSub, hardSub"]
+  H --> I["Calculate Term Work Credits"]
+  I --> J["Determine Multiplier Ranges"]
+  J --> K["Prioritize Subjects: Easy > Medium > Hard"]
+  K --> L{"Adjust Multipliers"}
+  L -->|SGPA Achieved?| M["Convert Multipliers to Marks"]
+  L -->|Max Range Reached| N["Flag invalidPref = true"]
+  M --> O{"Validate Marks"}
+  O -->|Valid| P["Update correctedPref"]
+  O -->|Invalid| Q["Return null"]
   N --> P
-  P --> R[Compute Final SGPA]
-  Q --> R
+  P --> R["Compute Final SGPA"]
   R --> S([End])
-  subgraph "Step 1: Input Data"
-    B
-  end
-  subgraph "Step 2-4: Initialize & Calculate"
-    C
-    D
-    E
-    F
-    G
-    H
-    I
-    J
-  end
-  subgraph "Step 5: Adjust Multipliers"
-    K
-    L
-  end
-  subgraph "Step 6-7: Validate & Finalize"
-    M
-    N
-    O
-    P
-    Q
-    R
-  end
 ```
 
 ---
