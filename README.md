@@ -149,7 +149,7 @@ flowchart TB
   D -->|Marks Provided| E["totalMarks = internalMarks + endSemesterMarks"]
   D -->|Preference Selected| F["Calculate Minimum Passing Marks"]
   F --> G["Assign Starting Multiplier"]
-  E --> F
+  E --> G
   G --> H["Categorize into easySub, interSub, hardSub"]
   H --> I["Calculate Term Work Credits"]
   I --> J["Determine Multiplier Ranges"]
