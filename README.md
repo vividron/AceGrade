@@ -20,6 +20,14 @@
 
 ---
 
+## Screenshots 📸 
+
+| Home Screen       | Preferences       | SGPA Prediction    | Help              |
+|-------------------|-------------------|--------------------|-------------------|
+| <img src="https://github.com/user-attachments/assets/4b9e5cba-45a9-44f8-87b0-7b95453d4788" height="500" alt="Home Page"/> | <img src="https://github.com/user-attachments/assets/09667ce5-aeba-4fcc-b3d2-11c15ee0b9d7" height="500" alt="Preferences"/> | <img src="https://github.com/user-attachments/assets/52b58434-ed01-4912-afde-a47442ef1924" height="500" alt="SGPA Prediction"/> | <img src="https://github.com/user-attachments/assets/e9fffb69-e58b-4b2f-884b-1e58aa0f41da" height="500" alt="Help Page"/> |  
+
+---
+
 # 📖 SGPA Prediction Algorithm
 
 ## Step 1: Input Data
