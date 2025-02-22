@@ -167,6 +167,29 @@ flowchart TB
 
 ---
 
+## Installation 📲
+
+### Prerequisites
+- **Android Studio** (latest version recommended).
+- **Java Development Kit (JDK 11+)** installed.
+- An Android device or emulator (API level 24 or higher).
+
+### Steps
+1. **Clone the repository**:
+```bash
+git clone https://github.com/vividron/AceGrade.git
+```
+2. **Open the project in Android Studio**:
+  - Launch Android Studio → `Open` → Navigate to the cloned `AceGrade` directory.
+3. **Build the project**:
+  - Wait for Gradle to sync dependencies automatically.
+  - If prompted, install missing SDK packages or update plugins.
+4. **Run the app**:
+  - Connect an Android device or start an emulator.
+  - Click the `Run` button (▶️) in Android Studio to install and launch the app.
+  
+---
+   
 ## 💬 Feedback
 
 Your feedback is valuable! Please download the app and share your thoughts to help improve the experience.
