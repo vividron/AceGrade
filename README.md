@@ -20,11 +20,19 @@
 
 ---
 
-## Screenshots 📸 
+## 📱 Demo (GIFs) 
 
-| Home Screen       | Preferences       | SGPA Prediction    | Help              |
-|-------------------|-------------------|--------------------|-------------------|
-| <img src="https://github.com/user-attachments/assets/4b9e5cba-45a9-44f8-87b0-7b95453d4788" height="500" alt="Home Page"/> | <img src="https://github.com/user-attachments/assets/09667ce5-aeba-4fcc-b3d2-11c15ee0b9d7" height="500" alt="Preferences"/> | <img src="https://github.com/user-attachments/assets/52b58434-ed01-4912-afde-a47442ef1924" height="500" alt="SGPA Prediction"/> | <img src="https://github.com/user-attachments/assets/e9fffb69-e58b-4b2f-884b-1e58aa0f41da" height="500" alt="Help Page"/> |  
+<div style="display: flex; flex-wrap: wrap; gap: 50px;">
+  <video src="https://github.com/user-attachments/assets/1821aa19-810b-4d18-9d48-3ad8b2ee3bb6" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
+
+  <video src="https://github.com/user-attachments/assets/bb7c08c2-3ae7-411c-a67e-0d392bb0d78f" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
+  
+  <video src="https://github.com/user-attachments/assets/33741d79-047c-443a-a18c-7b46290a5d9d" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
+  
+  <video src="https://github.com/user-attachments/assets/c3cc82fc-804a-4a14-855e-aae92ac9e485" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
+  
+  <video src="https://github.com/user-attachments/assets/4da59f48-0b2c-43f0-8da0-74fa447894c1" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
+</div>
 
 ---
 
