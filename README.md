@@ -86,6 +86,7 @@ The iteration count at which multiplier incrementation begins for a subject depe
 | Easy + Medium + Hard | 0    | 2      | 3    |
 | Easy + Medium      | 0    | 2      | -    |
 | Medium + Hard      | -    | 0      | 2    |
+| Easy + Hard      | 0    | -    | 2    |
 
 ### End Range:
 The maximum allowed multiplier for a subject:
