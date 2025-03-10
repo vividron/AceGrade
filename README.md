@@ -20,18 +20,29 @@
 
 ---
 
-## 📱 Demo (GIFs) 
+## Screenshots 📸 
 
 <div style="display: flex; flex-wrap: wrap; gap: 50px;">
-  <video src="https://github.com/user-attachments/assets/1821aa19-810b-4d18-9d48-3ad8b2ee3bb6" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
+  <img src="https://github.com/user-attachments/assets/4b9e5cba-45a9-44f8-87b0-7b95453d4788"  alt="Home Page" width="200" style="margin: 20px;"/>
+  
+  <img src="https://github.com/user-attachments/assets/8e58f1ec-8ce7-4a1c-b0fc-33d26eedc342" alt="Preferences" width="200" style="margin: 20px;"/>
+  
+  <img src="https://github.com/user-attachments/assets/6ca33d83-ce63-49a1-b439-7399491de123" alt="SGPA Prediction" width="200" style="margin: 20px;"/>
+  
+  <img src="https://github.com/user-attachments/assets/07b78c4a-6493-47dd-bce0-8759d0c16eb6" alt="Help Page" width="200" style="margin: 20px;"/>
+  
+  <img src="https://github.com/user-attachments/assets/5e5f82ce-943a-4809-9476-de098493a28c" alt="Unit Test KT" width="200" style="margin: 20px;"/>
+  
+  <img src="https://github.com/user-attachments/assets/d6d402f5-95b8-47b5-8718-1d0cf2a7c7a9" alt="EndSem KT" width="200" style="margin: 20px;"/>
+ 
+---
 
-  <video src="https://github.com/user-attachments/assets/bb7c08c2-3ae7-411c-a67e-0d392bb0d78f" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
-  
-  <video src="https://github.com/user-attachments/assets/33741d79-047c-443a-a18c-7b46290a5d9d" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
-  
-  <video src="https://github.com/user-attachments/assets/c3cc82fc-804a-4a14-855e-aae92ac9e485" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
-  
-  <video src="https://github.com/user-attachments/assets/4da59f48-0b2c-43f0-8da0-74fa447894c1" autoplay loop muted playsinline width="200" style="margin: 20px; border-radius: 10px;"></video>
+## 📱 Demo (GIFs) 
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://github.com/user-attachments/assets/53a03d2d-da28-40a4-8671-cbcb0a75acaa.gif" 
+         alt="App Preview" 
+         style="border-radius: 12px; width: 300px; height: auto;"/>
 </div>
 
 ---
@@ -50,7 +61,7 @@
 ### For each subject:
 #### If Marks Are Provided:
 Calculate total marks:
-```java
+```java 
 totalMarks = internalMarks + endSemesterMarks;
 ```
 #### If Preference Is Selected:
@@ -102,6 +113,47 @@ The maximum allowed multiplier for a subject:
 Order of adjustment:
 1. Easy → Medium → Hard subjects.
 2. 2-credit subjects within each category.
+```java
+public static void getPriority(ArrayList<Integer> pref, List<Integer> l, int[] internalMrks, int[] internalRange) {
+        ArrayList<Integer> temp = new ArrayList<>(pref); // Copy of pref array to make changes. like removing element which has 2 credit and added to list l, such that there will be no repetition
+        boolean have2Credit = true;
+        
+        for (int i = 0; i < pref.size(); i++) {
+            if (have2Credit) { // priority based on small credit 
+                int index = findCredit(temp); // finding index of sub which has 2 credits. returns -1 if not found  
+                if (index != -1) { // found 2 credit sub
+                    l.add(temp.get(index));
+                    temp.remove(index);
+                } else { // not found 2 credit sub
+                    have2Credit = false;
+                }
+            }
+            if (!have2Credit) { // priority based on unit test marks 
+                int minInterMrkDiff = Integer.MAX_VALUE; // to store the minimum unit test marks diff (sub with maximum marks).
+                int index = 0;
+                for (int j = 0; j < temp.size(); j++) {
+                    int diff = internalRange[temp.get(j)] - internalMrks[temp.get(j)]; // calculating the diff. ex - MATHS 22/25 then diff = 25-22 = 3, BEE 45/50 then diff = 50-45 = 5
+                    if (diff < minInterMrkDiff) {
+                        minInterMrkDiff = diff; // updating minimum diff 
+                        index = j; // storing the index of sub with maximum marks in unit test 
+                    }
+                } 
+                l.add(temp.get(index)); // storing the index of sub according to the priority
+                temp.remove(index); // removing sub as it is stored in list l.
+            }
+        }
+        temp.clear();
+    }
+
+    private static int findCredit(ArrayList<Integer> a) {
+        int index=0;
+        for (int i : a) {
+            if (getCredit(i) == 2) return index;
+            index++;
+        }
+        return -1;
+    }
+```
 
 ### Increment Multipliers:
 For each prioritized subject:
@@ -109,6 +161,21 @@ For each prioritized subject:
   - The calculated SGPA ≥ desired SGPA (`sgpaTC`).
   - The multiplier reaches its `endRange`.
 - Exit loop if all subjects hit their `endRange` and SGPA is still unmet (flag `invalidPref`).
+```java
+int cnt = 0;
+while (sgpaTC > subCreditSum(sub) + sum) {
+   boolean flag = true;
+    for (int i = 0; i < numOfSub; i++) {
+        if (!isEndSemMarks[subPriority[i]]) { //checking if the user has provided end sem marks for this sub, if it is then no incrementation as the marks are already provided.
+           if (sub[subPriority[i]] < endRange[subPriority[i]] && cnt >= startRange[subPriority[i]]) sub[subPriority[i]]++; // this logic will allow to increment easy sub first and then inter followed by hard.
+           if (sgpaTC <= subCreditSum(sub) + sum) break; //after each incrementation we will check if the required sgpa is reached or not.
+        }
+        if (sub[i] != endRange[i]) if (!isEndSemMarks[i]) flag = false; // if each sub's multiplier is equal to the end range after incrementation then we will break the loop. this is necessary as the loop will run infinitely if the prefs are not able to align with the desired SGPA. in this case each sub multiplier have reached there maximum range acc to prefs.
+    }
+    if (flag) break;
+    cnt++;
+}
+```
 
 ## Step 6: Validate & Calculate Final Marks
 ### Convert Multipliers to Marks:
