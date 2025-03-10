@@ -172,31 +172,31 @@ public class OnPrefPredictMarksAlgo {
     }
 
     public static void getPriority(ArrayList<Integer> pref, List<Integer> l, int[] internalMrks, int[] internalRange) {
-        ArrayList<Integer> temp = new ArrayList<>(pref);
+        ArrayList<Integer> temp = new ArrayList<>(pref); // Copy of pref array to make changes. like removing element which has 2 credit and added to list l, such that there will be no repetition
         boolean have2Credit = true;
+        
         for (int i = 0; i < pref.size(); i++) {
-            if (have2Credit) {
-                int index = findCredit(temp);
-                if (index != -1) {
+            if (have2Credit) { // priority based on small credit 
+                int index = findCredit(temp); // finding index of sub which has 2 credits. returns -1 if not found  
+                if (index != -1) { // found 2 credit sub
                     l.add(temp.get(index));
                     temp.remove(index);
-                } else {
+                } else { // not found 2 credit sub
                     have2Credit = false;
                 }
             }
-            if (!have2Credit) {
-                int minInterMrk = Integer.MAX_VALUE;
+            if (!have2Credit) { // priority based on unit test marks 
+                int minInterMrkDiff = Integer.MAX_VALUE; // to store the minimum unit test marks diff (sub with maximum marks).
                 int index = 0;
-                for (int sub = 0; sub < temp.size(); sub++) {
-                    int diff = internalRange[temp.get(sub)] - internalMrks[temp.get(sub)];
-                    if (diff < minInterMrk) {
-                        minInterMrk = diff;
-                        index = sub;
+                for (int j = 0; j < temp.size(); j++) {
+                    int diff = internalRange[temp.get(j)] - internalMrks[temp.get(j)]; // calculating the diff. ex - MATHS 22/25 then diff = 25-22 = 3, BEE 45/50 then diff = 50-45 = 5
+                    if (diff < minInterMrkDiff) {
+                        minInterMrkDiff = diff; // updating minimum diff 
+                        index = j; // storing the index of sub with maximum marks in unit test 
                     }
-                }
-                System.out.println(temp.get(index));
-                l.add(temp.get(index));
-                temp.remove(index);
+                } 
+                l.add(temp.get(index)); // storing the index of sub according to the priority
+                temp.remove(index); // removing sub as it is stored in list l.
             }
         }
         temp.clear();
