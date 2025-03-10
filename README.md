@@ -40,7 +40,7 @@
 ## 📱 Demo (GIFs) 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/user-attachments/assets/53a03d2d-da28-40a4-8671-cbcb0a75acaa.gif" 
+    <img src="https://github.com/user-attachments/assets/53a03d2d-da28-40a4-8671-cbcb0a75acaa" 
          alt="App Preview" 
          style="border-radius: 12px; width: 300px; height: auto;"/>
 </div>
